@@ -19,9 +19,12 @@
 
 // Solution
 var reverseString = function(s) {
-  for (let i = s.length-1; i >= 0; i--) {
-    let x = s[i];
-    s.splice(i, 1);
-    s.push(x);
-  }
+  s.reverse();
+
+  // For loop - Much more complex
+  // for (let i = s.length-1; i >= 0; i--) {
+  //   let x = s[i];
+  //   s.splice(i, 1);
+  //   s.push(x);
+  // }
 };
