@@ -1,51 +1,51 @@
-// Valid Palindrome
-// https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/883/
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
 
 
-// Problem
-// A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
-// Given a string s, return true if it is a palindrome, or false otherwise.
+// Questions/Clarifications
+// Is the string sorted? - No
+// Can there be duplicates? - Yes
+// Are there uppercase & lowercase letters? - Yes
+// Are there numbers? - Yes
+// Are there non-alphanumeric characters? - Yes
+// Are there whitespaces? - Yes
+// Is it case-sensitive? - No
 
 
-// Example 1
-// Input: s = "A man, a plan, a canal: Panama"
-// Output: true
-
-
-// Example 2
-// Input: s = "race a car"
-// Output: false
-// Explanation: "raceacar" is not a palindrome.
-
-
-// Example 3
-// Input: s = " "
-// Output: true
-// Explanation: s is an empty string "" after removing non-alphanumeric characters.
-// Since an empty string reads the same forward and backward, it is a palindrome.
-
-
-// Solution
+// Reverse string
+// Time - O(N)
 var isPalindrome = function(s) {
-  let array = s.toLowerCase().match(/[a-z]|[0-9]/g);
+  // Convert to lowercase letters
+  const stringLowercase = s.toLowerCase();
+  // Remove non-alphanumeric characters
+  const string = stringLowercase.replaceAll(/[^a-z0-9]/g, "");
+
+  const array = string.split("");
+  const stringReverse = array.reverse().join("");
   
-  if (array === null) {
-    return true;
+  if (string !== stringReverse) return false;
+  return true;
+};
+
+
+// Two pointers
+// Check if letters at opposite ends are the same
+var isPalindrome = function(s) {
+  // Convert to lowercase letters
+  const stringLowercase = s.toLowerCase();
+  // Remove non-alphanumeric characters
+  const string = stringLowercase.replaceAll(/[^a-z0-9]/g, "");
+
+  let start = 0;
+  let end = string.length - 1;
+
+  while (start <= end) {
+    if (string.charAt(start) !== string.charAt(end)) return false;
+    start++;
+    end--;
   }
 
-  // #1: For loop
-  // for (let i = 0; i < array.length/2; i++) {
-  //   let j = array.length - i - 1;
-  //   if (array[i] != array[j]) {
-  //     return false;
-  //   }
-  // }
-  // return true;
-  
-  // #2: Compare strin
-  if (array.join("") === array.reverse().join("")) {
-    return true;
-  } else {
-    return false;
-  }
+  return true;
 };
