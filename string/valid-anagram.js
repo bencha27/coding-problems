@@ -1,38 +1,56 @@
-// Valid Anagram
-// https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/882/
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
 
 
-// Problem
-// Given two strings s and t, return true if t is an anagram of s, and false otherwise.
-// An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+// Questions/Clarifications
+// Is the string sorted? - No
+// Can there be duplicates? - Yes
+// Is it case-sensitive? - No (all lowercase)
 
 
-// Example 1
-// Input: s = "anagram", t = "nagaram"
-// Output: true
-
-
-// Example 2
-// Input: s = "rat", t = "car"
-// Output: false
-
-
-// Solution
+// Sort
+// Convert strings to arrays & sort
+// Convert back to strings, check if they're identical
+// Time - O(n log n) / Space - O(log n)
 var isAnagram = function(s, t) {
-  if (s.length != t.length) {
-    return false;
-  }
+  const sArraySorted = s.split("").sort();
+  const tArraySorted = t.split("").sort();
+  const sSorted = sArraySorted.toString();
+  const tSorted = tArraySorted.toString();
   
-  let arrayS = s.split("");
-  let arrayT = t.split("");
-  arrayS.sort();
-  arrayT.sort();
-  let stringS = arrayS.join("");
-  let stringT = arrayT.join("");
-  
-  if (stringS == stringT) {
+  if (sSorted === tSorted) return true;
+  else return false;
+}
+
+
+// Hash map
+// Store character count in 1st string
+// Subtract character count from 2nd string
+// Check if every letter count is 0
+var isAnagram = function(s, t) {
+    if (s.length !== t.length) return false;
+    
+    const map = new Map();
+    
+    for (const letter of s) {
+      let count = map.get(letter) || 0;
+      count++;
+      map.set(letter, count);
+    }
+    
+    for (const letter of t) {
+      let count = map.get(letter);
+      if (!count) return false;
+      count--;
+      map.set(letter, count);
+    }
+    
+    for (const [ letter, count ] of map) {
+      if (count !== 0) return false;
+    }
+    
     return true;
-  } else {
-    return false;
-  }
-};
+}
