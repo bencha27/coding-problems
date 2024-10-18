@@ -1,6 +1,6 @@
 # Contains Duplicate
 
-[https://leetcode.com/problems/contains-duplicate/](https://leetcode.com/problems/contains-duplicate/)
+[https://leetcode.com/problems/contains-duplicate/description/](https://leetcode.com/problems/contains-duplicate/description/)
 
 ## Problem
 
