@@ -1,6 +1,6 @@
-# Valid Palindrome
+# [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/)
 
-[https://leetcode.com/problems/valid-palindrome/description/](https://leetcode.com/problems/valid-palindrome/description/)
+Difficulty - Easy
 
 ## Problem
 

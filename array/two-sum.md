@@ -1,6 +1,6 @@
-# Two Sum
+# [Two Sum](https://leetcode.com/problems/two-sum/description/)
 
-[https://leetcode.com/problems/two-sum/description/](https://leetcode.com/problems/two-sum/description/)
+Difficulty - Easy
 
 ## Problem
 

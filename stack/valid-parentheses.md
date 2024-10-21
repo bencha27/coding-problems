@@ -1,6 +1,6 @@
-# Valid Parentheses
+# [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/description/)
 
-[https://leetcode.com/problems/valid-parentheses/description/](https://leetcode.com/problems/valid-parentheses/description/)
+Difficulty - Easy
 
 ## Problem
 
