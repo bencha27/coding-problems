@@ -1,6 +1,7 @@
 # [Ransom Note](https://leetcode.com/problems/ransom-note/description/)
 
-Difficulty – Easy
+Difficulty – Easy  
+[Grind 75](https://www.techinterviewhandbook.org/grind75/)
 
 ## Problem
 

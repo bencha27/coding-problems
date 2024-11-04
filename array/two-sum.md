@@ -1,6 +1,7 @@
 # [Two Sum](https://leetcode.com/problems/two-sum/description/)
 
-Difficulty - Easy
+Difficulty - Easy  
+[Grind 75](https://www.techinterviewhandbook.org/grind75/)
 
 ## Problem
 

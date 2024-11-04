@@ -1,7 +1,7 @@
 # [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
 
 Difficulty – Easy  
-LeetCode Top Interview Questions - Easy
+[LeetCode Top Interview Questions - Easy](https://leetcode.com/explore/featured/card/top-interview-questions-easy/)
 
 ## Problem
 

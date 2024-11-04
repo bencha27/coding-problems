@@ -1,6 +1,7 @@
 # [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/)
 
-Difficulty - Easy
+Difficulty - Easy  
+[Grind 75](https://www.techinterviewhandbook.org/grind75/)
 
 ## Problem
 

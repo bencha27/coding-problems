@@ -1,6 +1,7 @@
-# [Product of Array Except Self](<(https://leetcode.com/problems/product-of-array-except-self/description/)>)
+# [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/description/)
 
-Difficulty - Easy
+Difficulty - Medium  
+[Grind 75](https://www.techinterviewhandbook.org/grind75/)
 
 ## Problem
 

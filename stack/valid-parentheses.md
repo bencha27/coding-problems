@@ -1,6 +1,7 @@
 # [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/description/)
 
-Difficulty - Easy
+Difficulty - Easy  
+[Grind 75](https://www.techinterviewhandbook.org/grind75/)
 
 ## Problem
 
