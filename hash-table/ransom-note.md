@@ -25,5 +25,5 @@ Output: `true`
 
 ## Constraints
 
-- 1 <= `ransomNote.length`, `magazine.length` <= 10<sup>5</sup>
+- <code>1 <= ransomNote.length, magazine.length <= 10<sup>5</sup></code>
 - `ransomNote` and `magazine` consist of lowercase English letters.

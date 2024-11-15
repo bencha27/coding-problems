@@ -33,5 +33,5 @@ Explanation: There is no way to make a positive profit, so we never buy the stoc
 
 ## Constraints
 
-- 1 <= `prices.length` <= 3 \* 10<sup>4</sup>
-- 0 <= `prices[i]` <= 10<sup>4</sup>
+- <code>1 <= prices.length <= 3 \* 10<sup>4</sup></code>
+- <code>0 <= `prices[i]` <= 10<sup>4</sup></code>

@@ -33,5 +33,5 @@ Output: `true`
 
 ## Constraints
 
-- 1 <= `s.length` <= 10<sup>4</sup>
+- <code>1 <= s.length <= 10<sup>4</sup></code>
 - `s` consists of parentheses only `'()[]{}'`.
