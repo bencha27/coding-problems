@@ -1,30 +1,83 @@
-// Intersection of Two Arrays II
-// https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/674/
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
 
 
-// Problem
-// Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.
-
-
-// Example 1
-// Input: nums1 = [1,2,2,1], nums2 = [2,2]
-// Output: [2,2]
-
-
-// Example 2
-// Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
-// Output: [4,9]
-
-
-// Solution
+// Linear search
+// Time - O(n^2) / Space - O(n)
 var intersect = function(nums1, nums2) {
-  let intersection = [];
-  for (let i = 0; i < nums1.length; i++) {
-    if (nums2.includes(nums1[i])) {
-      intersection.push(nums1[i]);
-      let index = nums2.indexOf(nums1[i]);
-      nums2.splice(index, 1);
+  const intersection = [];
+  
+  if (nums1.length < nums2.length) {
+    for (let i = 0; i < nums1.length; i++) {
+      const index = nums2.indexOf(nums1[i]);
+      if (index !== -1) {
+        intersection.push(nums1[i]);
+        nums2.splice(index, 1);
+      }
+    }
+  } else {
+    for (let i = 0; i < nums2.length; i++) {
+      const index = nums1.indexOf(nums2[i]);
+      if (index !== -1) {
+        intersection.push(nums2[i]);
+        nums1.splice(index, 1);
+      }
     }
   }
+  
+  return intersection;
+}
+
+
+// Sort & 2 pointers
+// Time - O(n log n) / Space - O(n)
+var intersect = function(nums1, nums2) {
+  function sortArray(a, b) {
+    return a - b;
+  }
+  nums1.sort(sortArray);
+  nums2.sort(sortArray);
+  
+  const intersection = [];
+  
+  for (let i = 0, j = 0; i < nums1.length && j < nums2.length; ) {
+    // nums[i] === nums[j]
+    if (nums1[i] === nums2[j]) {
+      intersection.push(nums1[i]);
+      i++;
+      j++;
+      continue;
+    } else if (nums1[i] > nums2[j]) {
+      j++;
+    } else i++;
+  }
+  
+  return intersection;
+}
+
+
+// Hash table
+// Time - O(n) / Space - O(n)
+var intersect = function(nums1, nums2) {
+  const map = new Map();
+  const intersection = [];
+  
+  for (const num of nums1) {
+    let count = map.get(num) || 0;
+    count++;
+    map.set(num, count);
+  }
+  
+  for (const num of nums2) {
+    let count = map.get(num);
+    if (!count) continue;
+    intersection.push(num);
+    count--;
+    map.set(num, count);
+  }
+  
   return intersection;
 }
