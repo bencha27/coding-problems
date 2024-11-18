@@ -1,40 +1,43 @@
-// Plus One
-// https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/559/
+/**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
 
 
-// Problem
-// You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
-// Increment the large integer by one and return the resulting array of digits.
-
-
-// Example 1
-// Input: digits = [1,2,3]
-// Output: [1,2,4]
-
-
-// Example 2
-// Input: digits = [4,3,2,1]
-// Output: [4,3,2,2]
-
-
-// Example 3
-// Input: digits = [9]
-// Output: [1,0]
-
-
-// Solution
+// Iterate through array, right to left
+// Time - O(n) / Space - O(1)
 var plusOne = function(digits) {
-  let i = digits.length - 1;
-  digits[i]++;
-  for (; digits[i] > 9; i--) {
-    if (digits[i] > 9) {
+  for (let i = digits.length - 1; i >= 0; i--) {
+    if (digits[i] < 9) {
+      digits[i]++;
+      return digits;
+    } else {
       digits[i] = 0;
-      if (!digits[i-1]) {
+      if (i === 0) {
         digits.unshift(1);
-      } else {
-        digits[i-1]++;
+        return digits;
       }
     }
   }
+}
+
+
+// Recursion
+// Time - O(n) / Space - O(n)
+var plusOne = function(digits) {
+  function carryTheOne(array) {
+    let digit = array.pop();
+    if (digit === undefined) {
+      return array.push(1);
+    } else if (digit < 9) {
+      digit++;
+      return array.push(digit);
+    } else {
+      carryTheOne(array);
+      return array.push(0);
+    }
+  }
+
+  carryTheOne(digits);
   return digits;
-};
+}
