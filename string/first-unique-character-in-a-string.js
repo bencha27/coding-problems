@@ -1,33 +1,42 @@
-// First Unique Character in a String
-// https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/881/
+/**
+ * @param {string} s
+ * @return {number}
+ */
 
 
-// Problem
-// Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
-
-
-// Example 1
-// Input: s = "leetcode"
-// Output: 0
-
-
-// Example 2
-// Input: s = "loveleetcode"
-// Output: 2
-
-
-// Example 3
-// Input: s = "aabb"
-// Output: -1
-
-
-// Solution
+// Compare first & last indices
+// Time - O(n^2) / Space - O(n)
 var firstUniqChar = function(s) {
-  for (let x of s) {
-    if (s.indexOf(x) === s.lastIndexOf(x)) {
-      return s.indexOf(x);
-      break;
+  for (let i = 0; i < s.length; i++) {
+    const character = s.charAt(i);
+    if (s.indexOf(character) === s.lastIndexOf(character)) {
+      return i;
     }
   }
+
   return -1;
 };
+
+
+// Hash table
+// Time - O(n) / Space - O(n)
+var firstUniqChar = function(s) {
+  let map = new Map();
+  
+  for (let i = 0; i < s.length; i++) {
+    const character = s.charAt(i);
+    if (map.get(character) === undefined) {
+      map.set(character, i);
+    } else {
+      map.set(character, false);
+    }
+  }
+  
+  for (let [ key, value ] of map) {
+    if (value !== false) {
+      return value;
+    }
+  }
+  
+  return -1;
+}
