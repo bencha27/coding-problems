@@ -15,7 +15,7 @@
 // Iteration
 // Time - O(n + m) / Space - O(1)
 var mergeTwoLists = function(list1, list2) {
-  const dummy = { val: 0, next: null};
+  const dummy = { val: 0, next: null };
   let node = dummy;
 
   while (list1 && list2) {
