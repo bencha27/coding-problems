@@ -1,26 +1,43 @@
-// Rotate Array (LeetCode)
-// https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/646/
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
 
 
-// Problem
-// Given an integer array "nums", rotate the array to the right by "k" steps, where "k" is non-negative.
+// Pop & shift k times
+// Time - O(n x k) / Space - O(1)
+var rotate = function(nums, k) {
+  if (k > nums.length) k %= nums.length;
 
-
-// Example 1
-// Input: nums = [1,2,3,4,5,6,7], k = 3
-// Output: [5,6,7,1,2,3,4]
-
-
-// Example 2
-// Input: nums = [-1,-100,3,99], k = 2
-// Output: [3,99,-1,-100]
-
-
-// Solution
-var rotate = (nums, k) => {
-  if (k > nums.length) {
-    k %= nums.length;
+  for (let i = 1; i <= k; i++) {
+    nums.unshift(nums.pop());
   }
-  let segment = nums.splice(-k, k);
+};
+
+
+// Splice last k elements
+// Time - O(n) / Space - O(k)
+var rotate = function(nums, k) {
+  if (k > nums.length) k %= nums.length;
+
+  let segment = nums.splice(-k);
   nums.splice(0, 0, ...segment);
-}
+};
+
+
+// Reverse whole array, first k elements, remaining elements
+// Time - O(n) / Space - O(1)
+var rotate = function(nums, k) {
+  if (k > nums.length) k %= nums.length;
+
+  nums.reverse();
+  
+  for (let i = 0, j = k - 1; i < j; i++, j--) {
+    [nums[i], nums[j]] = [nums[j], nums[i]];
+  }
+
+  for (let i = k, j = nums.length - 1; i < j; i++, j--) {
+    [nums[i], nums[j]] = [nums[j], nums[i]];
+  }
+};
